@@ -34,12 +34,18 @@ i.fa.fa-minus.fa-style:hover {
 }
 input.themgiohang {
     border: none;
-    background: brown;
+    background: var(--primary-color);
+    border-radius: 5px;
     color: #fff;
     padding: 12px;
     font-size: 15px;
     cursor: pointer;
 }
+
+input.themgiohang:hover {
+    background: linear-gradient(0, #101010, #71716a);
+}
+
 .header {
     background: linear-gradient(0, #101010, #71716a);
     background-repeat: no-repeat;
@@ -185,7 +191,7 @@ p.footer_copyright {
 /* Tabs */
 .tabs {
     width: 100%;
-    background-color: #00e6ac;
+    background-color: var(--primary-color);
     border-radius: 5px 5px 5px 5px;
 }
 ul#tabs-nav {
@@ -206,7 +212,7 @@ ul#tabs-nav li {
 }
 ul#tabs-nav li:hover,
 ul#tabs-nav li.active {
-    background-color: #08e;
+    background: linear-gradient(0, #101010, #71716a);
 }
 #tabs-nav li a {
     text-decoration: none;
@@ -214,7 +220,7 @@ ul#tabs-nav li.active {
 }
 .tab-content {
     padding: 10px;
-    border: 5px solid #00e6ac;
+    border: 5px solid var(--primary-color);
     background-color: #fff;
 }
 
