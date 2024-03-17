@@ -367,3 +367,7 @@ tfoot td {
     background: none;
     cursor: pointer;
 }
+
+.dashboard {
+    width: 100%;
+}

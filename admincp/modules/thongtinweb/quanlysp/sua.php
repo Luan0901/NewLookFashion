@@ -2,7 +2,7 @@
 	$sql_sua_sp = "SELECT * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' LIMIT 1";
 	$query_sua_sp = mysqli_query($mysqli,$sql_sua_sp);
 ?>
-<p>Sửa sản phẩm</p>
+<h2>Sửa sản phẩm</h2>
 <table border="1" width="100%" style="border-collapse: collapse;">
 <?php
 while($row = mysqli_fetch_array($query_sua_sp)) {

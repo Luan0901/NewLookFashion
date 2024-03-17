@@ -35,6 +35,10 @@
 			include("modules/quanlybaiviet/sua.php");
 		} elseif ($tam == 'quanlyweb' && $query == 'capnhat') {
 			include("modules/thongtinweb/quanly.php");
+		} elseif ($tam == 'taikhoan' && $query == 'them') {
+			include("modules/taikhoan/them.php");
+		} elseif ($tam == 'quyen' && $query == 'them') {
+			include("modules/quyen/them.php");
 		} else {
 			include("modules/dashboard.php");
 		}

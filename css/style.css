@@ -470,6 +470,7 @@ ul#tabs-nav li.active {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm box shadow */
     padding: 20px;
+    margin-left: 200px;
 }
 
 .baiviet {
