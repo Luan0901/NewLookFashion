@@ -54,14 +54,14 @@
         <!-- <img style="width: 150px; height: 150px;" src="images/newlook.png" alt=""> -->
         <div class="header-with-search">
             <div class="header__logo">
-                <a href="/" class="header__logo">
+                <a href="index.php" class="header__logo">
                     <img src="images/newlook.png" alt="" class="header__logo-img">
                 </a>
             </div>
 
             <div class="header__search">
                 <div class="header__logo">
-                    <a href="/" class="header__logo">
+                    <a href="../index.php" class="header__logo">
                         <!-- <img src="/newlook/assets/img/newlook.png" alt="" class="header__logo-img"> -->
                     </a>
                 </div>

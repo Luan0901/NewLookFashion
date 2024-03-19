@@ -1,20 +1,12 @@
 /* -------------------------------------------------------------------test--------------------------------------------------------- */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
 
-tbody {
-    border: none;
-}
-
-th {
+/* th {
     padding: 10px;
     color: #fff;
     background: linear-gradient(0, #101010, #71716a);
     border-radius: 5px;
     text-align: center;
-}
+} */
 
 td {
     /* padding: 10px; */
@@ -78,38 +70,34 @@ body {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 110px;
-    height: 100vh;
-    padding: 0 1.7rem;
-    color: #fff;
-    overflow: hidden;
-    transition: all 0.5s linear;
-    background: rgba(113, 99, 186, 255);
-    align-items: center;
-}
-
-.sidebar:hover {
     width: 240px;
-    transition: 0.5s;
+    height: 100vh;
+    color: #fff;
+    background: rgba(113, 99, 186, 255);
 }
 
 .logo {
-    height: 80px;
-    padding: 16px;
+    height: 100px;
+    width: 240px;
+    padding: 1rem;
 }
 
 .menu {
     height: 88%;
     position: relative;
     list-style: none;
-    padding: 0;
+    padding: 1.6rem;
 }
 
 .menu li {
-    padding: 0.7rem;
+    padding: 0.7em;
     margin: 8px 0;
     border-radius: 8px;
     transition: all 0.5s ease-in-out;
+}
+.menu li a:hover {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit default text color */
 }
 
 .menu li:hover,
@@ -131,7 +119,7 @@ body {
 }
 
 .menu a i {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .logout {
@@ -366,4 +354,10 @@ tfoot td {
     color: green;
     background: none;
     cursor: pointer;
+}
+a:hover {
+    text-decoration: none;
+}
+.th-QuanLy {
+    text-align: center;
 }

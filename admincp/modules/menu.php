@@ -1,4 +1,5 @@
 <div class="sidebar">
+	<a href="../index.php"><img class="logo" src="../images/newlook.png"></a>
 	<ul class="menu">
 		<li class="click">
 			<a href="index.php?action=1&query=thongke">
@@ -39,7 +40,7 @@
 		</li>
 		<li class="click">
 			<a href="index.php?action=quanlydonhang&query=lietke">
-				<i class="fa-solid fa-cart-shopping"></i>
+				<i class="fa-solid fa-tag"></i>
 				<span>Đơn hàng</span>
 			</a>
 		</li>
