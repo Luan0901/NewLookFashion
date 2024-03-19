@@ -32,7 +32,7 @@
             } elseif ($tam == 'quanlyweb' && $query == 'capnhat') {
                 include("modules/thongtinweb/quanly.php");
             } elseif ($tam == 'taikhoan' && $query == 'them') {
-                include("modules/taikhoan/them.php");
+                include("modules/taikhoan/lietke.php");
             } elseif ($tam == 'quyen' && $query == 'them') {
                 include("modules/quyen/them.php");
             } else {
