@@ -1,23 +1,23 @@
 <?php
-	$isBaiVietPage = isset($_GET['quanly']) && $_GET['quanly'] === 'baiviet';
-	?>
-	<div id="main">
-		<div class="app_container">
-			<div class="grid">
-				<div class="grid__row app_content">
+$isBaiVietPage = isset($_GET['quanly']) && $_GET['quanly'] === 'baiviet';
+?>
+<div id="main">
+	<div class="app_container">
+		<div class="grid">
+			<div class="grid__row app_content">
 				<?php if (!$isBaiVietPage) : ?>
 					<div class="grid__column-2">
-							<nav class="category">
-								<h3 class="category__heading">Danh mục</h3>
-							
-							
+						<nav class="category">
+							<h3 class="category__heading">Danh mục</h3>
+
+
 							<?php
 							include("sidebar/sidebar.php");
 							?>
-							</nav>
+						</nav>
 					</div>
-					<?php endif; ?>
-					<?php if (!$isBaiVietPage) : ?>
+				<?php endif; ?>
+				<?php if (!$isBaiVietPage) : ?>
 					<div class="grid__column-10">
 						<div class="maincontent">
 							<?php
@@ -69,8 +69,8 @@
 							?>
 						</div>
 					</div>
-					<?php endif; ?>
-					<?php if ($isBaiVietPage) : ?>
+				<?php endif; ?>
+				<?php if ($isBaiVietPage) : ?>
 					<div class="grid__column-12">
 						<div class="maincontent">
 							<?php
@@ -122,8 +122,8 @@
 							?>
 						</div>
 					</div>
-					<?php endif; ?>
-				</div>
-
+				<?php endif; ?>
 			</div>
+
 		</div>
+	</div>
