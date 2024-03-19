@@ -69,7 +69,11 @@ if ($page > $trang) {
         </li>
     </ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </nav>
 =======
 </nav>
 >>>>>>> 0c72b891b183e0e40642823411ba9b9d09a6fbc8
+=======
+</nav>
+>>>>>>> dev

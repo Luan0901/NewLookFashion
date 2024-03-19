@@ -1,5 +1,6 @@
 <div class="sidebar">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ul class="menu">
         <?php
         // Kiểm tra xem kết nối đến cơ sở dữ liệu đã được thiết lập chưa
@@ -39,9 +40,11 @@
     </ul>
 </div>
 =======
+=======
+>>>>>>> dev
 	<ul class="menu">
-		<li class="click">
-			<a href="index.php?action=1&query=thongke">
+		<li class="click active">
+			<a href="index.php?action=1&query=them">
 				<i class="fa-solid fa-house"></i>
 				<span>Thống kê</span>
 			</a>
@@ -72,9 +75,15 @@
 		</li>
 
 		<li class="click">
-			<a href="index.php?action=quanlytaikhoan&query=quanly">
+			<a href="index.php?action=taikhoan&query=them">
 				<i class="fa-solid fa-user"></i>
 				<span>Tài khoản</span>
+			</a>
+		</li>
+		<li class="click">
+			<a href="index.php?action=quyen&query=them">
+			<i class="fa-solid fa-user-gear"></i>
+				<span>Quyền</span>
 			</a>
 		</li>
 		<li class="click">
@@ -102,36 +111,8 @@
 			</a>
 		</li>
 	</ul>
-	<script>
-		const menuItems = document.querySelectorAll('.menu li');
-
-		function setActiveMenuItem() {
-			const currentURL = new URL(window.location.href);
-			const currentAction = currentURL.searchParams.get('action');
-			const currentQuery = currentURL.searchParams.get('query');
-
-			menuItems.forEach(menuItem => {
-				const menuItemLink = menuItem.querySelector('a');
-				const menuItemURL = new URL(menuItemLink.href);
-				const menuItemAction = menuItemURL.searchParams.get('action');
-				const menuItemQuery = menuItemURL.searchParams.get('query');
-
-				if (menuItemAction === currentAction && (menuItemQuery === currentQuery || !menuItemQuery)) {
-					menuItem.classList.add('active');
-				} else {
-					menuItem.classList.remove('active');
-				}
-			});
-		}
-
-		setActiveMenuItem(); // Call initially to set active state on page load
-
-		menuItems.forEach(menuItem => {
-			menuItem.addEventListener('click', () => {
-				setActiveMenuItem(); // Update active state on click
-			});
-		});
-	</script>
-
 </div>
+<<<<<<< HEAD
 >>>>>>> 0c72b891b183e0e40642823411ba9b9d09a6fbc8
+=======
+>>>>>>> dev

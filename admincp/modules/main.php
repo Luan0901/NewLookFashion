@@ -1,5 +1,8 @@
 <div class="main--content">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dev
     <div class="card-container">
         <?php
         // Hiển thị nội dung chính dựa trên action và query
@@ -34,6 +37,7 @@
                 include("modules/thongtinweb/quanly.php");
             } elseif ($tam == 'taikhoan' && $query == 'them') {
                 include("modules/taikhoan/lietke.php");
+                include("modules/taikhoan/them.php");
             } elseif ($tam == 'quyen' && $query == 'them') {
                 include("modules/quyen/them.php");
             } else {
@@ -45,6 +49,7 @@
         ?>
     </div>
 </div>
+<<<<<<< HEAD
 =======
 	<div class="card-container">
 		<?php
@@ -92,3 +97,6 @@
 	</div>
 </div>
 >>>>>>> 0c72b891b183e0e40642823411ba9b9d09a6fbc8
+=======
+
+>>>>>>> dev
