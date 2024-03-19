@@ -68,12 +68,6 @@ if ($page > $trang) {
             <a class="page-link" href="index.php?trang=<?php echo $page + 1; ?>">&raquo;</a>
         </li>
     </ul>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 </nav>
-=======
-</nav>
->>>>>>> 0c72b891b183e0e40642823411ba9b9d09a6fbc8
-=======
-</nav>
->>>>>>> dev
+

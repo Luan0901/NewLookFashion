@@ -1,6 +1,5 @@
 <div class="sidebar">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     <ul class="menu">
         <?php
         // Kiểm tra xem kết nối đến cơ sở dữ liệu đã được thiết lập chưa
@@ -39,80 +38,3 @@
         </li>
     </ul>
 </div>
-=======
-=======
->>>>>>> dev
-	<ul class="menu">
-		<li class="click active">
-			<a href="index.php?action=1&query=them">
-				<i class="fa-solid fa-house"></i>
-				<span>Thống kê</span>
-			</a>
-		</li>
-		<li class="click">
-			<a href="index.php?action=quanlydanhmucsanpham&query=them">
-				<i class="fa-solid fa-list"></i>
-				<span>Danh mục sản phẩm</span>
-			</a>
-		</li>
-		<li class="click">
-			<a href="index.php?action=quanlysp&query=them">
-				<i class="fa-solid fa-bag-shopping"></i>
-				<span>Sản phẩm</span>
-			</a>
-		</li>
-		<li class="click">
-			<a href="index.php?action=quanlydanhmucbaiviet&query=them">
-				<i class="fa-solid fa-table-list"></i>
-				<span>Danh mục bài viết</span>
-			</a>
-		</li>
-		<li class="click">
-			<a href="index.php?action=quanlybaiviet&query=them">
-				<i class="fa-solid fa-comment"></i>
-				<span>Bài viết</span>
-			</a>
-		</li>
-
-		<li class="click">
-			<a href="index.php?action=taikhoan&query=them">
-				<i class="fa-solid fa-user"></i>
-				<span>Tài khoản</span>
-			</a>
-		</li>
-		<li class="click">
-			<a href="index.php?action=quyen&query=them">
-			<i class="fa-solid fa-user-gear"></i>
-				<span>Quyền</span>
-			</a>
-		</li>
-		<li class="click">
-			<a href="index.php?action=quanlydonhang&query=lietke">
-				<i class="fa-solid fa-cart-shopping"></i>
-				<span>Đơn hàng</span>
-			</a>
-		</li>
-		<li class="click">
-			<a href="index.php?action=quanlyweb&query=capnhat">
-				<i class="fa-solid fa-globe"></i>
-				<span>Quản lý Website</span>
-			</a>
-		</li>
-		<li class="logout">
-			<?php
-			if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
-				unset($_SESSION['dangnhap']);
-				header('Location:login.php');
-			}
-			?>
-			<a href="index.php?dangxuat=1">
-				<i class="fa-solid fa-arrow-right-from-bracket"></i>
-				<span>Đăng xuất</span>
-			</a>
-		</li>
-	</ul>
-</div>
-<<<<<<< HEAD
->>>>>>> 0c72b891b183e0e40642823411ba9b9d09a6fbc8
-=======
->>>>>>> dev
