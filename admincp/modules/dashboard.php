@@ -1,6 +1,9 @@
 
 <div class="dashboard">
 
+=======
+<div class="dashboard" style="width: 90%;">
+>>>>>>> origin/main
 	<p>Thống kê đơn hàng theo : <span id="text-date"></span></p>
 	<p>
 		<select class="select-date">
@@ -13,3 +16,7 @@
 <div id="myfirstchart" style="height: 250px;"></div>
 
 </div>	
+		</select>
+	</p>
+	<div id="myfirstchart" style="height: 250px;"></div>
+</div>
