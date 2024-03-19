@@ -1,7 +1,7 @@
 <div class="sidebar">
 	<ul class="menu">
 		<li class="click active">
-			<a href="index.php?action=1">
+			<a href="index.php?action=1&query=them">
 				<i class="fa-solid fa-house"></i>
 				<span>Thống kê</span>
 			</a>
@@ -32,9 +32,15 @@
 		</li>
 
 		<li class="click">
-			<a href="#">
+			<a href="index.php?action=taikhoan&query=them">
 				<i class="fa-solid fa-user"></i>
 				<span>Tài khoản</span>
+			</a>
+		</li>
+		<li class="click">
+			<a href="index.php?action=quyen&query=them">
+			<i class="fa-solid fa-user-gear"></i>
+				<span>Quyền</span>
 			</a>
 		</li>
 		<li class="click">

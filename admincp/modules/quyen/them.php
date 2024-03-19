@@ -10,6 +10,7 @@
             border-collapse: collapse;
             width: 100%;
             border: none;
+            /* Xóa viền của bảng */
         }
 
         th,
