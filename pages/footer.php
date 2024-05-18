@@ -1,194 +1,78 @@
-<footer class="footer">
-                <div class="grid">
-                    <div class="grid__row">
-                        <div class="grid__column-2-4">
-                            <h3 class="footer__heading">Chăm sóc khách hàng</h3>
-                            <ul class="footer-list">
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="grid__column-2-4">
-                            <h3 class="footer__heading">Giới thiệu</h3>
-                            <ul class="footer-list">
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Giới thiệu</a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Tuyển dụng</a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Điều khoản</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="grid__column-2-4">
-                            <h3 class="footer__heading">Danh mục</h3>
-                            <ul class="footer-list">
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Túi đeo chéo</a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Túi bao tử</a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">Túi tote</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="grid__column-2-4">
-                            <h3 class="footer__heading">Theo dõi</h3>
-                            <ul class="footer-list">
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">
-                                        <i class="footer-item__icon fa-brands fa-facebook"></i>
-                                        Facebook
-                                    </a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">
-                                        <i class="footer-item__icon fa-brands fa-instagram"></i>
-                                        Instagram
-                                    </a>
-                                </li>
-                                <li class="footer-item">
-                                    <a href="" class="footer-item__link">
-                                        <i class="footer-item__icon fa-brands fa-linkedin"></i>
-                                        Linkedin
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="grid__column-2-4">
-                            <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
-                            <div class="footer__download">
-                                <img src="images/QR_code.png" alt="Download QR" class="footer__download-qr">
-                                <div class="footer__download-apps">
-                                    <a href="" class="footer__download-app-link">
-                                        <img src="images/ch_play.png" alt="Google play" class="footer__download-app-img">
-                                    </a>
-                                    <a href="footer__download-app-link">
-                                        <img src="images/app_store.png" alt="App store" class="footer__download-app-img">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer__bottom">
-                   <div class="grid">
-                        <p class="footer__text">© 2015 - Bản quyền thuộc về Công ty TNHH Newlook Fashion</p>
-                   </div>
-                </div>
-            </footer>
-            <!-- modal -->
-        <!-- <div class="modal">
-            <div class="modal__overplay"></div>
-            <div class="modal__body"> -->
-                
-                <!-- Register form -->
-                <!-- <div class="auth-form">
-                    <div class="auth-form__container">
-                        <div class="auth-form__header">
-                            <h3 class="auth-form__heading">Đăng ký</h3>
-                            <span class="auth-form__switch-btn">Đăng nhập</span>
-                        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Footer with Social icons</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Footer 1 email -->
 
-                        <div class="auth-form__form">
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Email của bạn">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Nhập lại mật khẩu">
-                            </div>
-                        </div>
-
-                        <div class="auth-form__aside">
-                            <p class="auth-form__policy-text">Bằng việc đăng kí, bạn đã đồng ý với Newlook về
-                                <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
-                                <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
-                            </p>
-                        </div>
-
-                        <div class="auth-form__controls">
-                            <button class="btn btn--normal auth-form__control-back">TRỞ LẠI</button>
-                            <button class="btn btn--primary">ĐĂNG KÝ</button>
-                        </div>
-                    </div>
-
-                    <div class="auth-form__socials">
-                        <a href="" class="auth-form__socials--facebook btn btn--size-s btn--with-icon">
-                            <i class="auth-form__socials-icon fa-brands fa-square-facebook"></i>
-                            <span class="auth-form__socials-title">
-                                Kết nối với Facebook
-                            </span>
-                        </a>
-                        <a href="" class="auth-form__socials--google btn btn--size-s btn--with-icon">
-                            <i class="auth-form__socials-icon fa-brands fa-google"></i>
-                            <span class="auth-form__socials-title">
-                                Kết nối với Facebook
-                            </span>
-                        </a>
-                    </div>
-                </div> -->
-
-                <!-- Login form -->
-                <!-- <div class="auth-form">
-                    <div class="auth-form__container">
-                        <div class="auth-form__header">
-                            <h3 class="auth-form__heading">Đăng nhập</h3>
-                            <span class="auth-form__switch-btn">Đăng ký</span>
-                        </div>
-
-                        <div class="auth-form__form">
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Email của bạn">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
-                            </div>
-                        </div>
-
-                        <div class="auth-form__aside">
-                            <div class="auth-form__help">
-                                <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
-                                <span class="auth-form__help-separate"></span>
-                                <a href="" class="auth-form__help-link">Cần trợ giúp</a>
-                            </div>
-                        </div>
-
-                        <div class="auth-form__controls">
-                            <button class="btn btn--normal auth-form__control-back">TRỞ LẠI</button>
-                            <button class="btn btn--primary">ĐĂNG NHẬP</button>
-                        </div>
-                    </div>
-
-                    <div class="auth-form__socials">
-                        <a href="" class="auth-form__socials--facebook btn btn--size-s btn--with-icon">
-                            <i class="auth-form__socials-icon fa-brands fa-square-facebook"></i>
-                            <span class="auth-form__socials-title">
-                                Kết nối với Facebook
-                            </span>
-                        </a>
-                        <a href="" class="auth-form__socials--google btn btn--size-s btn--with-icon">
-                            <i class="auth-form__socials-icon fa-brands fa-google"></i>
-                            <span class="auth-form__socials-title">
-                                Kết nối với Facebook
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                
-            </div> -->
-        <!-- </div> -->
+<!-- footer 2 main -->
+<footer class="mainfooter w-100" role="contentinfo">
+  <div class="footer-middle">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <!-- Column1 -->
+          <div class="footer-pad">
+            <img src="./images/newlook.png" style="max-width:100%; margin-bottom:10px;">
+            <div style="display: flex; flex-direction:row; justify-content:space-evenly; align-items: center">
+            <h4>THEO DÕI</h4>
+                <ul class="social-network social-circle">
+                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/kimada2002/NewLookFashion" class="icoGithub" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <!-- Column2 -->
+          <div class="footer-pad">
+            <h4>CHĂM SÓC KHÁCH HÀNG</h4>
+            <ul>
+              <li><a href="#">Trung Tâm Hỗ Trợ</a></li>
+              <li><a href="#">Trung Tâm Trợ Gúp</a></li>
+              <li><a href="#">Hướng Dẫn Mua Hàng</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <!-- Column3 -->
+          <div class="footer-pad">
+            <h4>GIỚI THIỆU</h4>
+            <ul>
+              <li><a href="#">Giới Thiệu</a></li>
+              <li><a href="#">Tuyển Dụng </a></li>
+              <li><a href="#">Điều Khoản</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <!-- Column4 -->
+          <div class="footer-pad">
+            <h4>DANH MỤC</h4>
+            <ul>
+              <li><a href="#">Túi Đeo Chéo</a></li>
+              <li><a href="#">Túi Bao Tử</a></li>
+              <li><a href="#">Túi Tote</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 copy">
+          <p class="text-center">© 2015 - Bản quyền thuộc về Công ty TNHH Newlook Fashion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

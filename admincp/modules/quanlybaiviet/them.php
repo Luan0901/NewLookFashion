@@ -1,27 +1,28 @@
-<p>Thêm bài viết</p>
-<table border="1" width="100%" style="border-collapse: collapse;">
-	<form method="POST" action="modules/quanlybaiviet/xuly.php" enctype="multipart/form-data">
-		<tr>
-			<td>Tên bài viết</td>
-			<td><input type="text" name="tenbaiviet"></td>
-		</tr>
+<h3 style="font-weight: bold">Thêm bài viết</h3>
+<form class="form-group" method="POST" action="modules/quanlybaiviet/xuly.php" enctype="multipart/form-data">
+	<div class="form-group">
+		<div class="form-col">
+			<div>
+				<label class="form-label">Tên bài viết</label>
+				<input type="text" class="form-control" placeholder="" name="tenbaiviet">
+			</div>
+			<div class="form-group">
+				<label class="form-label">Hình ảnh</label>
+				<input type="file" class="form-control-file" name="hinhanh">
+			</div>
+		</div>
 
-		<tr>
-			<td>Hình ảnh</td>
-			<td><input type="file" name="hinhanh"></td>
-		</tr>
-		<tr>
-			<td>Tác giả</td>
-			<td><textarea rows="10" name="tomtat" style="resize: none"></textarea></td>
-		</tr>
-		<tr>
-			<td>Nội dung</td>
-			<td><textarea rows="10" name="noidung" style="resize: none"></textarea></td>
-		</tr>
-		<tr>
-			<td>Danh mục bài viết</td>
-			<td>
-				<select name="danhmuc">
+		<div class="form-row">
+			<div class="col-md-6">
+				<label class="form-label">Tình trạng</label>
+				<select class="form-select" name="tinhtrang">
+					<option value="1">Kích hoạt</option>
+					<option value="0">Ẩn</option>
+				</select>
+			</div>
+			<div class="col-md-6">
+				<label class="form-label">Danh mục bài viết</label>
+				<select class="form-select" name="danhmuc">
 					<?php
 					$sql_danhmuc = "SELECT * FROM tbl_danhmucbaiviet ORDER BY id_baiviet DESC";
 					$query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
@@ -32,19 +33,19 @@
 					}
 					?>
 				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>Tình trạng</td>
-			<td>
-				<select name="tinhtrang">
-					<option value="1">Kích hoạt</option>
-					<option value="0">Ẩn</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" name="thembaiviet" value="Thêm bài viết"></td>
-		</tr>
-	</form>
-</table>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="form-group">
+		<label class="form-label">Tác giả</label>
+		<textarea type="text" name="tomtat" class="form-control" placeholder=""></textarea>
+	</div>
+	<div class="form-group">
+		<label class="form-label">Nội dung</label>
+		<textarea type="text" name="noidung" class="form-control" placeholder=""></textarea>
+	</div>
+
+	<button type="submit" name="thembaiviet" class="btn btn-dark">Thêm bài viết</button>
+</form>

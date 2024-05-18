@@ -32,25 +32,31 @@ i.fa.fa-minus.fa-style:hover {
     width: 49%;
     margin: 0 10px;
 }
-input.themgiohang {
-    border: none;
-    background: var(--primary-color);
-    border-radius: 5px;
+.btn-themgiohang {
+    width: 96%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222831;
     color: #fff;
-    padding: 12px;
-    font-size: 15px;
+    border: none;
+    font-size: 18px;
+    border-radius: 40px;
+    padding: 10px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-input.themgiohang:hover {
-    background: linear-gradient(0, #101010, #71716a);
+.btn-themgiohang:hover {
+    background-color: #76ABAE; /* Chỉ định màu khi hover */
+}
+
+.btn-themgiohang span {
+    margin-right: 5px; /* Khoảng cách giữa chữ và icon */
 }
 
 .header {
-    background: linear-gradient(0, #101010, #71716a);
-    background-repeat: no-repeat;
-    background-size: 100% 180px;
-    height: 100px;
+    background: #000;
     width: 100%;
 }
 .menu {
@@ -82,15 +88,9 @@ ul.list_menu li {
     margin: 7px;
     padding: 5px;
 }
-ul.baiviet {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-ul.baiviet li {
-    padding: 10px;
-}
+
 #main {
+    background: #93B1A6;
     height: auto;
     width: 100%;
 }
@@ -177,8 +177,13 @@ p.title_product {
 .footer {
     height: 150px;
     width: 100%;
-    color: #fff;
-    /* background-image: linear-gradient(0, #101010, #71716a); */
+    background: #183D3D;
+    
+}
+.footer .footer__heading,
+.footer .footer-item__link,
+.footer .footer-item__icon {
+    color: #ffffff;
 }
 p.footer_copyright {
     text-align: center;
@@ -188,41 +193,7 @@ p.footer_copyright {
     clear: both;
 }
 
-/* Tabs */
-.tabs {
-    width: 100%;
-    background-color: var(--primary-color);
-    border-radius: 5px 5px 5px 5px;
-}
-ul#tabs-nav {
-    list-style: none;
-    margin: 0;
-    padding: 5px;
-    overflow: auto;
-}
-ul#tabs-nav li {
-    float: left;
-    font-weight: bold;
-    margin-right: 2px;
-    padding: 8px 10px;
-    border-radius: 5px 5px 5px 5px;
-    /*border: 1px solid #d5d5de;
-  border-bottom: none;*/
-    cursor: pointer;
-}
-ul#tabs-nav li:hover,
-ul#tabs-nav li.active {
-    background: linear-gradient(0, #101010, #71716a);
-}
-#tabs-nav li a {
-    text-decoration: none;
-    color: #fff;
-}
-.tab-content {
-    padding: 10px;
-    border: 5px solid var(--primary-color);
-    background-color: #fff;
-}
+
 
 /* jQuery Demo */
 
@@ -332,9 +303,7 @@ ul#tabs-nav li.active {
     border-left: 17px solid #2f69aa;
 }
 
-.arrow-steps clearfix {
-    margin: 10px 0;
-}
+
 /* ---------------------------------------------------------------------------------------------------------- */
 .sidebar {
     /* Customize sidebar width and position */
@@ -357,7 +326,7 @@ ul#tabs-nav li.active {
 
 #item_danhmucsanpham a {
     text-decoration: none;
-    color: #333;
+    color: #222831;
 }
 
 #item_danhmucsanpham a:hover {
@@ -406,89 +375,68 @@ ul#tabs-nav li.active {
     /* Example: light gray background for active category */
 }
 
-/* ------------------------------------------------------------------Tag Bài viết-------------------------------------------- */
-.news-title {
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 20px;
-}
 
-.news-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px auto;
-    max-width: 800px;
-    /* Adjust as needed */
-}
-
-.news-item {
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    /* Add border for each news item */
-    border-radius: 5px;
-    overflow: hidden;
-    /* Ensure the image does not overflow */
-}
-
-.news-item a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.news-item-image {
-    float: left;
-    width: 120px;
-}
-
-.news-image {
+.carousel-item img {
     width: 100%;
-    height: auto;
-    display: block;
+    object-fit: cover;
+}
+/* Menu được chọn */
+.navbar-nav .nav-item.active .nav-link {
+    opacity: 1;
+    font-weight: bolder;
+    color: #fff;/* Đặt đậm font cho menu được chọn */
 }
 
-.news-item-content {
-    padding: 10px;
+/* Menu không được chọn */
+.navbar-nav .nav-item .nav-link {
+    opacity: 0.5; /* Đặt độ mờ cho menu không được chọn */
+    transition: opacity 0.3s ease; /* Thêm hiệu ứng chuyển động */
+    color: #fff;
 }
 
-.news-item-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
+.navbar-nav .nav-item .nav-link:hover {
+    opacity: 0.7; /* Đổi độ mờ khi rê chuột vào */
+    color: #fff;
+}
+/* Định dạng chung cho dropdown menu */
+.dropdown-menu {
+    background-color: #ffffff; /* Màu nền */
+    border: 1px solid #cccccc; /* Viền */
+    border-radius: 5px; /* Bo góc */
+    
 }
 
-.news-item-summary {
-    color: #333;
-}
-/* ------------------------------------------------------------Bài viết--------------------------------------- */
-.news-item-content {
-    background: #fff;
-    padding: 10px;
-}
-
-.baiviet-container {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm box shadow */
-    padding: 20px;
-    margin-left: 200px;
+/* Định dạng cho các mục menu */
+.dropdown-menu a {
+    color: #333333; /* Màu văn bản */
+    text-decoration: none; /* Loại bỏ gạch chân */
+    display: block; /* Hiển thị theo dạng block */
+    padding: 20px; /* Khoảng cách giữa các mục */
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+    
 }
 
-.baiviet {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+/* Hiệu ứng hover */
+.dropdown-menu a:hover {
+    background-color: #f5f5f5; /* Màu nền khi hover */
 }
 
-.baiviet li {
+.header__search-form {
+    display: flex;
+    height: auto; /* Chiều cao tự động */
+    padding: 5px;
+}
+
+.header__search-input {
+    flex: 1; /* Input chiếm phần còn lại của flex container */
+    margin-right: 5px; /* Khoảng cách giữa input và button */
+}
+
+.btn-primary {
+    height: auto; /* Chiều cao tự động */
+    margin: 0; /* Xóa margin */
+}
+.giohang-title{
     margin-bottom: 20px;
-}
+  }
 
-.baiviet h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.baiviet p {
-    font-size: 18px;
-    line-height: 1.6;
-}

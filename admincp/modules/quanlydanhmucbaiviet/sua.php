@@ -2,26 +2,27 @@
 	$sql_sua_danhmucbv = "SELECT * FROM tbl_danhmucbaiviet WHERE id_baiviet='$_GET[idbaiviet]' LIMIT 1";
 	$query_sua_danhmucbv = mysqli_query($mysqli,$sql_sua_danhmucbv);
 ?>
-<p>Sửa danh mục sản phẩm</p>
-<table border="1" width="50%" style="border-collapse: collapse;">
+
+<h3 style="font-weight: bold">Sửa danh mục bài viết</h3>
+
  <form method="POST" action="modules/quanlydanhmucbaiviet/xuly.php?idbaiviet=<?php echo $_GET['idbaiviet'] ?>">
  	<?php
- 	while($dong = mysqli_fetch_array($query_sua_danhmucbv)) {
+ 		while($dong = mysqli_fetch_array($query_sua_danhmucbv)) {
  	?>
-	  <tr>
-	  	<td>Tên danh mục</td>
-	  	<td><input type="text" value="<?php echo $dong['tendanhmuc_baiviet'] ?>" name="tendanhmucbaiviet"></td>
-	  </tr>
-	  <tr>
-	    <td>Thứ tự</td>
-	    <td><input type="text" value="<?php echo $dong['thutu'] ?>" name="thutu"></td>
-	  </tr>
-	   <tr>
-	    <td colspan="2"><input type="submit" name="suadanhmucbaiviet" value="Sửa danh mục bài viết"></td>
-	  </tr>
+	  <div class="form-group">
+		<div class="form-col">
+			<div>
+				<label class="form-label">Tên danh mục</label>
+				<input type="text" class="form-control" value="<?php echo $dong['tendanhmuc_baiviet'] ?>" name="tendanhmucbaiviet">
+			</div>
+			<div>
+				<label class="form-label">Thứ tự</label>	
+				<input type="text" class="form-control" value="<?php echo $dong['thutu'] ?>" name="thutu">		
+			</div>
+		</div>
+	</div>
+  <button type="submit" name="suadanhmucbaiviet" class="btn btn-dark">Sửa danh mục bài viết</button>
 	  <?php
 	  } 
 	  ?>
-
  </form>
-</table>

@@ -52,10 +52,8 @@
 </head>
 
 <body>
-
     <h1>Quản lý phân quyền</h1>
-
-    <form id="addRoleForm" method="POST" action="modules/quyen/xuly.php">
+    <!-- <form id="addRoleForm" method="POST" action="modules/quyen/xuly.php">
         <table>
             <tr>
                 <td>Tên quyền</td>
@@ -88,33 +86,46 @@
                 <td colspan="2"><input type="submit" name="themquyen" value="Thêm quyền"></td>
             </tr>
         </table>
+    </form> -->
+    <form id="addRoleForm" method="POST" action="modules/quyen/xuly.php">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Tên quyền</label>
+            <div class="col-sm-10">
+            <input type="text" name="Role"  class="form-control" id="inputEmail3" placeholder="VD: nhân viên bán hàng" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2">Chức năng</div>
+            <div class="col-sm-10">
+            <div class="form-check">
+            <?php
+                    // Truy vấn cơ sở dữ liệu để lấy tên các menu
+                    $sql_menu = "SELECT name FROM menu_features";
+                    $result_menu = $mysqli->query($sql_menu);
+
+                    // Kiểm tra nếu có dữ liệu trả về
+                    if ($result_menu->num_rows > 0) {
+                        // Lặp qua từng mục và hiển thị chúng trong danh sách checkbox
+                        while ($row_menu = $result_menu->fetch_assoc()) {
+                            echo '<input type="checkbox" name="MenuNames[]" value="' . $row_menu['name'] . '"> ' . $row_menu['name'] . '<br>';
+                        }
+                    }
+                    ?>
+            </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2">Mô tả</div>
+            <div class="col-sm-10">
+            <textarea rows="5" name="Description" style="resize: none" required></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+            <button type="submit" class="btn btn-dark" name="themquyen">Thêm quyền</button>
+            </div>
+        </div>
     </form>
-    <!-- 
-<script>
-    document.getElementById('addRoleForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        var formData = new FormData(this); // Get form data
-        var xhr = new XMLHttpRequest(); // Create new XMLHttpRequest object
-
-        // Set up AJAX request
-        xhr.open('POST', 'modules/quyen/xuly.php', true);
-        xhr.onload = function () {
-            if (xhr.status === 200) { // Check if request was successful
-                // Display success message
-                alert('Thêm quyền thành công!');
-                // Reset form
-                document.getElementById('addRoleForm').reset();
-            } else {
-                alert('Đã xảy ra lỗi, vui lòng thử lại sau.');
-            }
-        };
-
-        // Send form data
-        xhr.send(formData);
-    });
-</script> -->
-
 </body>
 
 </html>

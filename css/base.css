@@ -42,7 +42,7 @@ html {
 }
 
 .grid {
-    width: 1200px;
+    width: 80%;
     max-width: 100%;
     margin: 0 auto;
 }
@@ -123,16 +123,10 @@ html {
 
 /* Button Đăng ký + Đăng nhập */
 .btn {
-    min-width: 124px;
-    height: 34px;
     text-decoration: none;
     border: none;
-    border-radius: 2px;
     font-size: 1.5rem;
     padding: 0 12px;
-    cursor: pointer;
-    color: var(--text-color);
-    display: inline-flex;
     align-items: center;
     justify-content: center;
     line-height: 1.6rem;
@@ -149,12 +143,12 @@ html {
 }
 
 .btn.btn--primary {
-    color: var(--white-color);
-    background-color: var(--primary-color);
+    color: #fff;
+    background-color: #222831;
 }
 
 .btn.btn--primary:hover {
-    background: linear-gradient(0, #101010, #71716a);
+    background: #76ABAE;
 }
 
 .btn.btn--disabled {
@@ -268,3 +262,13 @@ html {
     background: linear-gradient(0, #101010, #71716a);
     border-color: #333;
 }
+.carousel-item {
+    height: 350px;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  

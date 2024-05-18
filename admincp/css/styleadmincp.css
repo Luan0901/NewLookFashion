@@ -1,5 +1,8 @@
 /* -------------------------------------------------------------------test--------------------------------------------------------- */
 
+
+
+
 /* th {
     padding: 10px;
     color: #fff;
@@ -41,6 +44,9 @@ input[type="submit"]:hover {
     background: linear-gradient(0, #101010, #71716a);
 }
 
+.th-center{
+    text-align: center;
+}
 .tomtat-sp {
     text-align: center;
     overflow: hidden;
@@ -48,7 +54,6 @@ input[type="submit"]:hover {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
-    text-overflow: ellipsis;
 }
 /* -------------------------------------------------adminpage---------------------------------------- */
 @import url("https://fonts.cdnfonts.com/css/roboto");
@@ -71,33 +76,40 @@ body {
     left: 0;
     bottom: 0;
     width: 240px;
-    height: 100vh;
+    height: 110vh;
     color: #fff;
-    background: rgba(113, 99, 186, 255);
+    background-color: #101010;
+    
+    
 }
 
+
+
 .logo {
-    height: 100px;
+    height: 90px;
     width: 240px;
-    padding: 1rem;
+    padding: 1.0rem;
 }
 
 .menu {
     height: 88%;
     position: relative;
     list-style: none;
-    padding: 1.6rem;
+    padding: 0 1.0rem;
+    
 }
 
 .menu li {
-    padding: 0.7em;
+    padding: 1.0em;
     margin: 8px 0;
     border-radius: 8px;
     transition: all 0.5s ease-in-out;
 }
-.menu li a:hover {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit default text color */
+.menu li a:hover{
+    
+        text-decoration: none;  /* Remove underline */
+        color: inherit;        /* Inherit default text color */
+        
 }
 
 .menu li:hover,
@@ -357,20 +369,28 @@ tfoot td {
 }
 a:hover {
     text-decoration: none;
+  }
+
+.form-group{
+    width: 80%;   
 }
-.th-QuanLy {
-    text-align: center;
+.form-label {
+    font-size: large;
+    padding-top: 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+select.form-select {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}

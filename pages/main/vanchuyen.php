@@ -1,20 +1,18 @@
-<p>Thông tin vận chuyển</p>
-
-<div class="container">
+<div class="container-fluid p-3">
 	<?php
 	if (isset($_SESSION['id_khachhang'])) {
 	?>
 		<!-- thanh tiến trình -->
-		<div class="arrow-steps clearfix">
+		<div class="arrow-steps clearfix" style="margin-top: 20px;">
 			<div class="step done"> <span> <a href="index.php?quanly=giohang">Giỏ hàng</a></span> </div>
 			<div class="step current"> <span><a href="index.php?quanly=vanchuyen">Vận chuyển</a></span> </div>
 			<div class="step"> <span><a href="index.php?quanly=thongtinthanhtoan">Thanh toán</a><span> </div>
-			<div class="step"> <span><a href="index.php?quanly=donhangdadat">Lịch sử đơn hàng</a><span> </div>
+			<!-- <div class="step"> <span><a href="index.php?quanly=donhangdadat">Lịch sử đơn hàng</a><span> </div> -->
 		</div>
 	<?php
 	}
 	?>
-	<h4>Thông tin vận chuyển</h4>
+	<h1  style="margin-top: 20px;">Thông tin vận chuyển</h1>
 	<?php
 	if (isset($_POST['themvanchuyen'])) {
 		$name = $_POST['name'];
@@ -57,32 +55,32 @@
 			$note = '';
 		}
 		?>
-		<div class="col-md-12">
-			<form action="" autocomplete="off" method="POST">
+		<div class="col-md-10" style="margin-top:10px">
+			<form  action="" autocomplete="off" method="POST">
 				<div class="form-group">
 					<label for="email">Họ và tên</label>
-					<input type="text" name="name" class="form-control" value="<?php echo $name ?>" placeholder="...">
+					<input type="text" name="name" class="form-control form-control-lg" value="<?php echo $name ?>" placeholder="...">
 				</div>
 				<div class="form-group">
 					<label for="email">Phone</label>
-					<input type="text" name="phone" class="form-control" value="<?php echo $phone ?>" placeholder="...">
+					<input type="text" name="phone" class="form-control form-control-lg" value="<?php echo $phone ?>" placeholder="...">
 				</div>
 				<div class="form-group">
 					<label for="email">Địa chỉ</label>
-					<input type="text" name="address" class="form-control" value="<?php echo $address ?>" placeholder="...">
+					<input type="text" name="address" class="form-control form-control-lg" value="<?php echo $address ?>" placeholder="...">
 				</div>
 				<div class="form-group">
 					<label for="email">Ghi chú</label>
-					<input type="text" name="note" class="form-control" value="<?php echo $note ?>" placeholder="...">
+					<input type="text" name="note" class="form-control form-control-lg" value="<?php echo $note ?>" placeholder="...">
 				</div>
 				<?php
 				if ($name == '' && $phone == '') {
 				?>
-					<button type="submit" name="themvanchuyen" class="btn btn-primary">Thêm vận chuyển</button>
+					<button type="submit" name="themvanchuyen" class="btn btn-primary btn-lg " >Thêm vận chuyển</button>
 				<?php
 				} elseif ($name != '' && $phone != '') {
 				?>
-					<button type="submit" name="capnhatvanchuyen" class="btn btn-success">Cập nhật vận chuyển</button>
+					<button type="submit" name="capnhatvanchuyen" class="btn btn-success btn-lg">Cập nhật vận chuyển</button>
 				<?php
 				}
 				?>
@@ -90,18 +88,18 @@
 		</div>
 
 		<!--------Giỏ hàng------------------>
-		<table style="width:100%;text-align: center;border-collapse: collapse;" border="1">
-			<tr>
-				<th>Id</th>
-				<th>Mã sp</th>
-				<th>Tên sản phẩm</th>
-				<th>Hình ảnh</th>
-				<th>Số lượng</th>
-				<th>Giá sản phẩm</th>
-				<th>Thành tiền</th>
-
-
-			</tr>
+		<table class="table" style="width:100%;text-align: center;border-collapse: collapse; margin-top: 20px ;" >
+			<thead class="thead-dark" style="font-size: 16px; ">
+				<tr>
+				<th scope="col">Hình ảnh</th>
+				<th scope="col">Mã sp</th>
+				<th scope="col">Tên sản phẩm</th>
+				<th scope="col">Số lượng</th>
+				<th scope="col">Giá sản phẩm</th>
+				<th scope="col">Thành tiền</th>
+				</tr>
+			</thead>
+			<tbody style="font-size: 14px;">
 			<?php
 			if (isset($_SESSION['cart'])) {
 				$i = 0;
@@ -111,19 +109,18 @@
 					$tongtien += $thanhtien;
 					$i++;
 			?>
-					<tr>
-						<td><?php echo $i; ?></td>
-						<td><?php echo $cart_item['masp']; ?></td>
-						<td><?php echo $cart_item['tensanpham']; ?></td>
-						<td><img src="admincp/modules/quanlysp/uploads/<?php echo $cart_item['hinhanh']; ?>" width="150px"></td>
-						<td>
+					<tr scope="row">
+					<td><img src="admincp/modules/quanlysp/uploads/<?php echo $cart_item['hinhanh']; ?>" width="150px"></td>
+					<td style="vertical-align: middle;"><?php echo $cart_item['masp']; ?></td>
+					<td style="vertical-align: middle;"><?php echo $cart_item['tensanpham']; ?></td>
+						<td style="vertical-align: middle;">
 							<!-- <a href="pages/main/themgiohang.php?tru=<?php echo $cart_item['id'] ?>"><i class="fa fa-minus fa-style" aria-hidden="true"></i></a> -->
 							<?php echo $cart_item['soluong']; ?>
 							<!-- <a href="pages/main/themgiohang.php?cong=<?php echo $cart_item['id'] ?>"><i class="fa fa-plus fa-style" aria-hidden="true"></i></a> -->
 
 						</td>
-						<td><?php echo number_format($cart_item['giasp'], 0, ',', '.') . 'vnđ'; ?></td>
-						<td><?php echo number_format($thanhtien, 0, ',', '.') . 'vnđ' ?></td>
+					      <td style="vertical-align: middle;"><?php echo number_format($cart_item['giasp'], 0, ',', '.') ?><u class="dong">đ</u></td>
+      					  <td style="vertical-align: middle;"><?php echo number_format($thanhtien, 0, ',', '.') ?><u class="dong">đ</u></td>
 
 					</tr>
 				<?php
@@ -131,9 +128,11 @@
 				?>
 				<tr>
 					<td colspan="8">
-						<p style="float: left;">Tổng tiền: <?php echo number_format($tongtien, 0, ',', '.') . 'vnđ' ?></p><br />
-
-						<div style="clear: both;"></div>
+					
+						<h2 style="float: right; padding:30px;">Tổng tiền: <?php echo number_format($tongtien, 0, ',', '.') ?><u class="dong">đ</u></h2>
+						
+						<br> <!-- Thêm thẻ <br> để tạo dòng mới -->
+						<div style="margin-top:100px">
 						<?php
 						if (isset($_SESSION['dangky'])) {
 						?>
@@ -145,6 +144,8 @@
 						<?php
 						}
 						?>
+						</div>
+						
 					</td>
 				</tr>
 			<?php
@@ -159,6 +160,16 @@
 			<?php
 			}
 			?>
+			</tbody>
 		</table>
 	</div>
 </div>
+<style>
+  .form-group button {
+    margin-top: 10px; /* Điều chỉnh giá trị margin-top tùy ý */
+  }
+  .form-group label {
+    font-size: 16px; /* Điều chỉnh kích thước tùy ý */
+  }
+
+</style>

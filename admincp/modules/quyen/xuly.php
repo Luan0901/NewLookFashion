@@ -31,10 +31,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['themquyen'])) {
         }
 
         // Chuyển hướng đến lietke.php
-        header("Location: lietke.php");
+        header("Location: ../../index.php?action=quyen&query=them");
         exit(); // Đảm bảo không có mã HTML hoặc mã PHP nào được thực thi sau khi chuyển hướng
     } else {
         echo "Lỗi: " . $sql_them_quyen . "<br>" . $mysqli->error;
     }
+}
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    // Lấy ID và lưu vào biến
+    $id_quyen = $_GET['id'];
+
+    // Xóa các bản ghi liên quan từ bảng role_features trước
+    $sql_xoa_role_features = "DELETE FROM role_features WHERE role_id = $id_quyen";
+    $mysqli->query($sql_xoa_role_features);
+
+    // Kiểm tra xem có lổi nếu xóa role_features không
+    if ($mysqli->error) {
+        echo "Lỗi khi xóa role_features: " . $mysqli->error;
+        exit;
+    }
+
+    // Tiếp theo, xóa quyền từ bảng tbt_quyen
+    $sql_xoa_quyen = "DELETE FROM tbt_quyen WHERE ID = $id_quyen";
+    if ($mysqli->query($sql_xoa_quyen) === TRUE) {
+        // Chuyển hướng người dùng về trang liệt kê quyền sau khi xóa thành công
+        header("Location: ../../index.php?action=quyen&query=them");
+        exit;
+    } else {
+        echo "Lỗi khi xóa quyền: " . $mysqli->error;
+        exit;
+    }
+} else {
+    echo "Không tìm thấy ID quyền để xóa.";
+    exit;
 }
 ?>

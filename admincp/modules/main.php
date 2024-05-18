@@ -34,11 +34,15 @@
                 include("modules/thongtinweb/quanly.php");
             } elseif ($tam == 'taikhoan' && $query == 'them') {
                 include("modules/taikhoan/lietke.php");
-                include("modules/taikhoan/them.php");
+                // include("modules/taikhoan/them.php");
+            }  elseif ($tam == 'taikhoan' && $query == 'sua') {
+                include("modules/taikhoan/sua.php");
+                // include("modules/taikhoan/them.php");
             } elseif ($tam == 'quyen' && $query == 'them') {
                 include("modules/quyen/them.php");
+                include("modules/quyen/lietke.php");
             } else {
-                include("modules/dashboard.php");
+                include("modules/statistic.php");
             }
         } else {
             include("modules/dashboard.php");
@@ -46,4 +50,3 @@
         ?>
     </div>
 </div>
-

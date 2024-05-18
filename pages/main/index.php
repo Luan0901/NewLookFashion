@@ -1,73 +1,59 @@
 <?php
-if (isset($_GET['trang'])) {
-    $page = $_GET['trang'];
-} else {
-    $page = 1;
-}
-if ($page == '' || $page == 1) {
-    $begin = 0;
-} else {
-    $begin = ($page * 10) - 10;
-}
-// Thực hiện truy vấn SQL chỉ lấy sản phẩm có tình trạng khác 0
-$sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.tinhtrang != 0 ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,10";
-$query_pro = mysqli_query($mysqli, $sql_pro);
-?>
-
-<div class="row">
-    <?php
-    while ($row = mysqli_fetch_array($query_pro)) {
-    ?>
-        <div class="grid__column-2-4">
-            <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" class="product-item">
-                <img class="img img-responsive" width="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
-                <p class="title_product"><?php echo $row['tensanpham'] ?></p>
-                <p class="price_product"><?php echo number_format($row['giasp'], 0, ',', '.') . 'vnđ' ?></p>
-            </a>
-        </div>
-    <?php
+if (isset($_GET['quanly']) && $_GET['quanly'] == 'trangchu') {
+    // Xác định trang hiện tại
+    if (isset($_GET['trang'])) {
+        $page = $_GET['trang'];
+    } else {
+        $page = 1;
     }
-    ?>
-</div>
 
-<div style="clear:both;"></div>
+    // Số lượng sản phẩm trên mỗi trang
+    $items_per_page = 15;
 
-<?php
-// Tính lại số lượng sản phẩm và số lượng trang
-$sql_trang = mysqli_query($mysqli, "SELECT * FROM tbl_sanpham WHERE tinhtrang != 0");
-$row_count = mysqli_num_rows($sql_trang);
-$trang = ceil($row_count / 10);
+    // Truy vấn tổng số lượng sản phẩm
+    $sql_count = "SELECT COUNT(*) AS total FROM tbl_sanpham";
+    $query_count = mysqli_query($mysqli, $sql_count);
+    $row_count = mysqli_fetch_assoc($query_count);
+    $total_items = $row_count['total'];
 
-// Đảm bảo rằng trang hiện tại không vượt quá số lượng trang mới tính được
-if ($page > $trang) {
-    $page = $trang;
+    // Tính tổng số trang
+    $total_pages = ceil($total_items / $items_per_page);
+
+    // Tính vị trí bắt đầu của sản phẩm trong truy vấn dữ liệu
+    $start_from = ($page - 1) * $items_per_page;
+
+    // Truy vấn dữ liệu từ cơ sở dữ liệu
+    $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $start_from, $items_per_page";
+    $query_pro = mysqli_query($mysqli, $sql_pro);
+
+    // Hiển thị sản phẩm
+    echo '<div class="row">';
+    while ($row = mysqli_fetch_array($query_pro)) {
+        echo '<div class="grid__column-2-4">';
+        echo '<a href="index.php?quanly=sanpham&id=' . $row['id_sanpham'] . '" class="product-item">';
+        echo '<img class="img img-responsive" width="100%" src="admincp/modules/quanlysp/uploads/' . $row['hinhanh'] . '">';
+        echo '<p class="title_product">' . $row['tensanpham'] . '</p>';
+        echo '<p class="price_product">' . number_format($row['giasp'], 0, ',', '.') . 'vnđ</p>';
+        echo '</a>';
+        echo '</div>';
+    }
+    echo '</div>';
+
+    // Hiển thị phân trang
+    echo '<nav aria-label="Page navigation">';
+    echo '<ul class="pagination">';
+    echo '<li class="page-item ' . ($page <= 1 ? 'disabled' : '') . '">';
+    echo '<a class="page-link" href="index.php?quanly=trangchu&trang=' . ($page - 1) . '">&laquo;</a>';
+    echo '</li>';
+    for ($i = 1; $i <= $total_pages; $i++) {
+        echo '<li class="page-item ' . ($i == $page ? 'active' : '') . '">';
+        echo '<a class="page-link" href="index.php?quanly=trangchu&trang=' . $i . '">' . $i . '</a>';
+        echo '</li>';
+    }
+    echo '<li class="page-item ' . ($page >= $total_pages ? 'disabled' : '') . '">';
+    echo '<a class="page-link" href="index.php?quanly=trangchu&trang=' . ($page + 1) . '">&raquo;</a>';
+    echo '</li>';
+    echo '</ul>';
+    echo '</nav>';
 }
 ?>
-
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-        <li class="page-item <?php if ($page <= 1) {
-                                    echo 'disabled';
-                                } ?>">
-            <a class="page-link" href="index.php?trang=<?php echo $page - 1; ?>">&laquo;</a>
-        </li>
-        <?php
-        for ($i = 1; $i <= $trang; $i++) {
-        ?>
-            <li class="page-item <?php if ($i == $page) {
-                                        echo 'active';
-                                    } ?>">
-                <a class="page-link" href="index.php?trang=<?php echo $i; ?>"><?php echo $i; ?></a>
-            </li>
-        <?php
-        }
-        ?>
-        <li class="page-item <?php if ($page >= $trang) {
-                                    echo 'disabled';
-                                } ?>">
-            <a class="page-link" href="index.php?trang=<?php echo $page + 1; ?>">&raquo;</a>
-        </li>
-    </ul>
-
-</nav>
-

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version 2.71.0
+ * @version 3.1.1
  */
 
 require __DIR__.'/vendor/autoload.php';

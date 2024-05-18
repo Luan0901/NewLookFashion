@@ -1,3 +1,4 @@
+<div class="container-fluid-camon p-3">
 <?php 
 	include('admincp/config/config.php');
 	
@@ -99,3 +100,26 @@
 	}
 ?>
 <p>Cám ơn bạn đã mua hàng, chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất</p>
+</div>
+<style>
+	.container-fluid-camon {
+	
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 500px;
+    }
+	.container-fluid-camon {
+
+	text-align: center; /* Căn giữa nội dung */
+	}
+
+	.container-fluid-camon h3 {
+	color: #007bff; /* Màu chữ của tiêu đề */
+	}
+
+	.container-fluid-camon p {
+	font-size: 18px; /* Kích thước chữ của đoạn văn */
+	
+	}
+</style>

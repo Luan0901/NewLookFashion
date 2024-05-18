@@ -1,57 +1,126 @@
-<?php
-// Kiểm tra xem action và query được truyền qua URL không
-if(isset($_GET['action']) && isset($_GET['query']) && $_GET['action'] == 'taikhoan' && $_GET['query'] == 'sua') {
-    // Kiểm tra xem có tham số idtaikhoan được truyền qua URL không
-    if(isset($_GET['idtaikhoan'])) {
-        $idtaikhoan = $_GET['idtaikhoan'];
-        
-        include('../../config/config.php');
-
-
-        // Truy vấn cơ sở dữ liệu để lấy thông tin của tài khoản với ID tương ứng
-        $sql = "SELECT * FROM tbl_dangky WHERE id_dangky = $idtaikhoan";
-        $result = $mysqli->query($sql);
-
-        // Kiểm tra xem có dữ liệu trả về không
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            
-            // Hiển thị form sửa thông tin tài khoản
-            ?>
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Sửa thông tin tài khoản</title>
-            </head>
-            <body>
-                <h1>Sửa thông tin tài khoản</h1>
-                <form action="xuly_sua.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $row['id_dangky']; ?>">
-                    <label for="tenkhachhang">Tên tài khoản:</label><br>
-                    <input type="text" id="tenkhachhang" name="tenkhachhang" value="<?php echo $row['tenkhachhang']; ?>"><br>
-                    <label for="email">Email:</label><br>
-                    <input type="text" id="email" name="email" value="<?php echo $row['email']; ?>"><br>
-                    <label for="diachi">Địa chỉ:</label><br>
-                    <input type="text" id="diachi" name="diachi" value="<?php echo $row['diachi']; ?>"><br>
-                    <label for="dienthoai">Điện thoại:</label><br>
-                    <input type="text" id="dienthoai" name="dienthoai" value="<?php echo $row['dienthoai']; ?>"><br>
-                    <label for="role">Quyền:</label><br>
-                    <input type="text" id="role" name="role" value="<?php echo $row['role']; ?>"><br><br>
-                    <input type="submit" value="Lưu">
-                </form>
-            </body>
-            </html>
-            <?php
-        } else {
-            echo "Không tìm thấy thông tin tài khoản.";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa quyền</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .info-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <?php
+        
+        // Kiểm tra xem có ID tài khoản được gửi từ trang trước không
+        if(isset($_GET['idtaikhoan'])) {
+            $id_taikhoan = $_GET['idtaikhoan'];
+            
+            // Truy vấn để lấy thông tin quyền hiện tại của người dùng
+            $sql_user_role = "SELECT role_id FROM tbl_dangky WHERE id_dangky = $id_taikhoan";
+            $result_user_role = $mysqli->query($sql_user_role);
+            
+            // Kiểm tra xem truy vấn có kết quả không
+            if ($result_user_role->num_rows > 0) {
+                $row_user_role = $result_user_role->fetch_assoc();
+                $current_role_id = $row_user_role['role_id'];
 
-        // Đóng kết nối
-        $mysqli->close();
-    } else {
-        echo "ID tài khoản không được cung cấp.";
-    }
-} else {
-    echo "Yêu cầu không hợp lệ.";
-}
-?>
+                // Truy vấn để lấy thông tin về các quyền từ bảng tbt_quyen
+                $sql_quyen = "SELECT id, role, description FROM tbt_quyen";
+                $result_quyen = $mysqli->query($sql_quyen);
+                ?>
+                <div class="info-box">
+                    <h2>Thông tin chỉnh sửa quyền</h2>
+                    <p>Dưới đây là danh sách các quyền:</p>
+                    <ul>
+                        <?php
+                        // Kiểm tra nếu có dữ liệu trả về
+                        if ($result_quyen->num_rows > 0) {
+                            while ($row_quyen = $result_quyen->fetch_assoc()) {
+                                $selected = ($row_quyen['id'] == $current_role_id) ? "selected" : "";
+                                echo "<li><strong>[{$row_quyen['id']}] </strong> <strong>{$row_quyen['role']}:</strong> {$row_quyen['description']}</li>";
+                            }
+                        } else {
+                            echo "<li>Không có quyền nào được tìm thấy.</li>";
+                        }
+                        ?>
+                    </ul>
+                </div>
+
+                <h1>Chỉnh sửa quyền</h1>
+                <form action="modules/taikhoan/xuly.php" method="POST">
+                    <input type="hidden" name="id_taikhoan" value="<?php echo $id_taikhoan; ?>">
+                    <label for="new_role">Chọn quyền mới:</label>
+                    <select name="new_role" id="new_role">
+                        <?php
+                        // Reset con trỏ dữ liệu
+                        $result_quyen->data_seek(0);
+
+                        // Hiển thị các tùy chọn từ bảng tbt_quyen
+                        if ($result_quyen->num_rows > 0) {
+                            while ($row_quyen = $result_quyen->fetch_assoc()) {
+                                $selected = ($row_quyen['id'] == $current_role_id) ? "selected" : "";
+                                echo "<option value=\"{$row_quyen['id']}\" $selected>{$row_quyen['role']}</option>";
+                            }
+                        } else {
+                            echo "<option value=\"\">Không có quyền nào được tìm thấy.</option>";
+                        }
+                        ?>
+                    </select>
+                    <button type="submit" name="submit">Lưu</button>
+                </form>
+            <?php
+            } else {
+                echo "<p>Không tìm thấy thông tin quyền của người dùng.</p>";
+            }
+        } else {
+            echo "<p>Không tìm thấy tài khoản.</p>";
+        }
+        ?>
+    </div>
+</body>
+</html>

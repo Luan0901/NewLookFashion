@@ -1,24 +1,27 @@
 <?php
-$isBaiVietPage = isset($_GET['quanly']) && $_GET['quanly'] === 'baiviet';
-?>
-<div id="main">
-	<div class="app_container">
-		<div class="grid">
-			<div class="grid__row app_content">
-				<?php if (!$isBaiVietPage) : ?>
-					<div class="grid__column-2">
-						<nav class="category">
-							<h3 class="category__heading">Danh mục</h3>
+	$isBaiVietPage = isset($_GET['quanly']) && $_GET['quanly'] === 'baiviet';
+	$isShowSidebar = (
+		(isset($_GET['quanly']) && ($_GET['quanly'] === 'danhmucsanpham' || $_GET['quanly'] === 'sanpham')) 
+		&& !$isBaiVietPage
+	);
+	?>
 
-
+	<div id="main">
+		<div class="app_container">
+			<div class="grid">
+				<div class="grid__row app_content">
+				<?php if ($isShowSidebar) : ?>
+					<div class="col-2 p-2">
+							<nav class="category">
+								<h3 class="category__heading">Danh mục</h3>
 							<?php
 							include("sidebar/sidebar.php");
 							?>
-						</nav>
+							</nav>
 					</div>
-				<?php endif; ?>
-				<?php if (!$isBaiVietPage) : ?>
-					<div class="grid__column-10">
+					<?php endif; ?>
+					<?php if ($isShowSidebar) : ?>
+					<div class="col-10 p-2">
 						<div class="maincontent">
 							<?php
 							if (isset($_GET['quanly'])) {
@@ -69,9 +72,9 @@ $isBaiVietPage = isset($_GET['quanly']) && $_GET['quanly'] === 'baiviet';
 							?>
 						</div>
 					</div>
-				<?php endif; ?>
-				<?php if ($isBaiVietPage) : ?>
-					<div class="grid__column-12">
+					<?php endif; ?>
+					<?php if (!$isShowSidebar) : ?>
+					<div class="grid__full-width">
 						<div class="maincontent">
 							<?php
 							if (isset($_GET['quanly'])) {
@@ -122,8 +125,8 @@ $isBaiVietPage = isset($_GET['quanly']) && $_GET['quanly'] === 'baiviet';
 							?>
 						</div>
 					</div>
-				<?php endif; ?>
+					<?php endif; ?>
+				</div>
+
 			</div>
-
 		</div>
-	</div>

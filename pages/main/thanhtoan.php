@@ -34,7 +34,7 @@
 		}
 		$maildathang = $_SESSION['email'];
 		$mail = new Mailer();
-		$mail->dathangmail($tieude,$noidung,$maildathang);
+		$mail->dathangmail($tieude, $noidung, $maildathang);
 	}
 	unset($_SESSION['cart']);
 	header('Location:../../index.php?quanly=camon');

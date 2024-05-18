@@ -1,32 +1,28 @@
-<h3>Lịch sử đơn hàng</h3>
+<div class="container-fluid-liichsudonhang p-3">
+<h2 style="margin-top:15px;">Lịch sử đơn hàng</h2>
 <?php
-$id_khachhang = $_SESSION['id_khachhang'];
-$sql_lietke_donhang = "SELECT *
-                    FROM tbl_cart
-                    INNER JOIN tbl_dangky ON tbl_cart.id_khachhang = tbl_dangky.id_dangky
-                    INNER JOIN tbl_shipping ON tbl_cart.cart_shipping = tbl_shipping.id_shipping
-                    WHERE tbl_cart.id_khachhang = '$id_khachhang'
-                    ORDER BY tbl_cart.id_cart DESC";
-
-$query_lietke_donhang = mysqli_query($mysqli, $sql_lietke_donhang);
+  $id_khachhang = $_SESSION['id_khachhang'];
+  $sql_lietke_dh = "SELECT * FROM tbl_cart,tbl_dangky WHERE tbl_cart.id_khachhang=tbl_dangky.id_dangky AND tbl_cart.id_khachhang='$id_khachhang' ORDER BY tbl_cart.id_cart DESC";
+  $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
 ?>
-<table style="width:100%" border="1" style="border-collapse: collapse;">
-  <tr>
-    <th>Id</th>
-    <th>Mã đơn hàng</th>
-    <th>Tên khách hàng</th>
-    <th>Địa chỉ</th>
-    <!-- <th>Email</th> -->
-    <th>Số điện thoại</th>
-    <th>Tình trạng</th>
-    <th>Ngày đặt</th>
-    <th>Thanh toán</th>
-    <th>Đơn hàng</th>
-    <th>Quản lý</th>
-  </tr>
+<table class="table" style="width:100%;margin-top:20px; text-align:center">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Mã đơn hàng</th>
+      <th>Tên khách hàng</th>
+      <th>Địa chỉ</th>
+      <th>Email</th>
+      <th>Số điện thoại</th>
+      <th>Tình trạng</th>
+      <th>Ngày đặt</th>
+      <th>Quản lý</th>
+      <th>Hình thức thanh toán</th>
+    </tr>
+  </thead>
   <?php
   $i = 0;
-  while ($row = mysqli_fetch_array($query_lietke_donhang)) {
+  while ($row = mysqli_fetch_array($query_lietke_dh)) {
     $i++;
   ?>
     <tr>
@@ -34,7 +30,7 @@ $query_lietke_donhang = mysqli_query($mysqli, $sql_lietke_donhang);
       <td><?php echo $row['code_cart'] ?></td>
       <td><?php echo $row['tenkhachhang'] ?></td>
       <td><?php echo $row['diachi'] ?></td>
-      <!-- <td><?php echo $row['email'] ?></td> -->
+      <td><?php echo $row['email'] ?></td>
       <td><?php echo $row['dienthoai'] ?></td>
 
       <td>
@@ -47,6 +43,9 @@ $query_lietke_donhang = mysqli_query($mysqli, $sql_lietke_donhang);
       </td>
       <td><?php echo $row['cart_date'] ?></td>
       <td>
+        <a href="index.php?quanly=xemdonhang&code=<?php echo $row['code_cart'] ?>">Xem đơn hàng</a>
+      </td>
+      <td>
         <?php
         if ($row['cart_payment'] == 'vnpay' || $row['cart_payment'] == 'momo') {
         ?>
@@ -58,12 +57,6 @@ $query_lietke_donhang = mysqli_query($mysqli, $sql_lietke_donhang);
         <?php
         }
         ?>
-      </td>
-      <td>
-        <a href="index.php?quanly=xemdonhang&code=<?php echo $row['code_cart'] ?>">Xem đơn hàng</a>
-      </td>
-      <td style="text-align: center;">
-        <a href="pages/main/lichsudonhang/xuly.php?code_cart=<?php echo $row['code_cart'] ?>"><i class="fa-solid fa-trash"></i></a> | <a href="?action=quanlydh&query=sua&code_cart=<?php echo $row['code_cart'] ?>"><i class="fa-solid fa-screwdriver-wrench"></i></a>
       </td>
     </tr>
   <?php
@@ -141,3 +134,42 @@ if (isset($_GET['congthanhtoan'])) {
   }
 }
 ?>
+</div>
+<style>
+  .container-fluid-liichsudonhang {
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.table th {
+  background-color: #343a40; /* Màu nền tiêu đề */
+  color: #fff; /* Màu chữ tiêu đề */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa; /* Màu nền dòng lẻ */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #e9ecef; /* Màu nền dòng chẵn */
+}
+
+.table-striped th {
+  background-color: #343a40; /* Màu nền tiêu đề */
+  color: #fff; /* Màu chữ tiêu đề */
+}
+
+</style>
