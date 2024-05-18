@@ -5,7 +5,8 @@ if (isset($_POST['dangky'])) {
     $dienthoai = $_POST['dienthoai'];
     $matkhau = md5($_POST['matkhau']);
     $diachi = $_POST['diachi'];
-
+    $role_id = $_POST['role_id'];
+    $role_id=29;
     // Ràng buộc dữ liệu
     if (empty($tenkhachhang)) {
         echo '<script>alert("Bạn chưa nhập tên")</script>';
@@ -33,7 +34,7 @@ if (isset($_POST['dangky'])) {
     }
 
     // Lưu trữ dữ liệu
-    $sql_dangky = mysqli_query($mysqli, "INSERT INTO tbl_dangky(tenkhachhang,email,diachi,matkhau,dienthoai) VALUE('" . $tenkhachhang . "','" . $email . "','" . $diachi . "','" . $matkhau . "','" . $dienthoai . "')");
+    $sql_dangky = mysqli_query($mysqli, "INSERT INTO tbl_dangky(tenkhachhang,email,diachi,matkhau,dienthoai,role_id) VALUE('" . $tenkhachhang . "','" . $email . "','" . $diachi . "','" . $matkhau . "','" . $dienthoai . "','" . $role_id . "')");
     if ($sql_dangky) {
         echo '<script>alert("Bạn đã đăng ký tài khoản thành công")</script>';
         echo '<script>window.location.href = "index.php";</script>';

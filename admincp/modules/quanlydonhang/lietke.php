@@ -1,4 +1,4 @@
-<p>Liệt kê đơn hàng</p>
+<h1>Quản lý đơn hàng</h1>
 <?php
 $sql_lietke_dh = "SELECT *
 FROM tbl_cart

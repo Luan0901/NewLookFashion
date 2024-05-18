@@ -1,4 +1,4 @@
-<p>Thêm danh mục sản phẩm</p>
+<h1>Quản lý danh mục sản phẩm</h1>
 <table border="1" width="50%" style="border-collapse: collapse;">
 	<form method="POST" action="modules/quanlydanhmucsp/xuly.php">
 		<tr>
