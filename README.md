@@ -46,19 +46,6 @@ New Look Fashion is a PHP-based e-commerce platform specializing in fashion reta
 
   - User management
     ![image](https://github.com/user-attachments/assets/677dda58-4cc0-47f0-ba25-50febd27686f)
-    
-// chi tiet san pham
-![image](https://github.com/user-attachments/assets/38e2d646-d4e8-4dbf-bae1-109a708c8d37)
-// danh sach san pham
-![image](https://github.com/user-attachments/assets/bf87a259-bc2d-4d95-abf7-a5ac3dc8059d)
-
-
-
-
-
-
-
-
 
 ## Technology Stack
 - **Frontend:**
